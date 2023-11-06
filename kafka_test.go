@@ -114,7 +114,6 @@ func TestVersionMarshalUnmarshal(t *testing.T) {
 			}
 		})
 	}
-
 }
 
 type Struct struct {
@@ -152,7 +151,6 @@ func BenchmarkUnmarshal(b *testing.B) {
 	for _, v := range benchmarkValues {
 		b.Run(fmt.Sprintf("%T", v), func(b *testing.B) {
 			data, err := Marshal(v)
-
 			if err != nil {
 				b.Fatal(err)
 			}

@@ -40,7 +40,6 @@ func getKafkaReader(kafkaURL, topic, groupID string) *kafka.Reader {
 }
 
 func main() {
-
 	// get Mongo db Collection using environment variables.
 	mongoURL := os.Getenv("mongoURL")
 	dbName := os.Getenv("dbName")

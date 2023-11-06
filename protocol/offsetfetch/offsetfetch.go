@@ -20,9 +20,7 @@ type RequestTopic struct {
 	PartitionIndexes []int32 `kafka:"min=v0,max=v5"`
 }
 
-var (
-	_ protocol.GroupMessage = (*Request)(nil)
-)
+var _ protocol.GroupMessage = (*Request)(nil)
 
 type Response struct {
 	ThrottleTimeMs int32           `kafka:"min=v3,max=v5"`

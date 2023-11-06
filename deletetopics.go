@@ -44,7 +44,6 @@ func (c *Client) DeleteTopics(ctx context.Context, req *DeleteTopicsRequest) (*D
 		TopicNames: req.Topics,
 		TimeoutMs:  c.timeoutMs(ctx, defaultDeleteTopicsTimeout),
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).DeleteTopics: %w", err)
 	}

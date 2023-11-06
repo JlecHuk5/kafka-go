@@ -518,7 +518,6 @@ func TestRackAffinityGroupBalancer(t *testing.T) {
 
 		for _, tt := range tests {
 			t.Run(tt.name, func(t *testing.T) {
-
 				// create members per the distribution in the test case.
 				var members []GroupMember
 				for zone, count := range tt.memberCounts {
@@ -564,7 +563,6 @@ func TestRackAffinityGroupBalancer(t *testing.T) {
 				partsPerZone := make(map[string]map[string]int)
 				uniqueParts := make(map[int]struct{})
 				for id, topicToPartitions := range res {
-
 					for topic, assignments := range topicToPartitions {
 						if topic != "test" {
 							t.Fatalf("wrong topic...expected test but got %s", topic)

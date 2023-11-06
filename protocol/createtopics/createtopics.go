@@ -69,6 +69,4 @@ type ResponseTopicConfig struct {
 	IsSensitive  bool   `kafka:"min=v5,max=v5"`
 }
 
-var (
-	_ protocol.BrokerMessage = (*Request)(nil)
-)
+var _ protocol.BrokerMessage = (*Request)(nil)

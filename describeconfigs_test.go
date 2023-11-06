@@ -29,14 +29,14 @@ func TestClientDescribeConfigs(t *testing.T) {
 		Resources: []AlterConfigRequestResource{{
 			ResourceType: ResourceTypeTopic,
 			ResourceName: topic,
-			Configs: []AlterConfigRequestConfig{{
-				Name:  MaxMessageBytes,
-				Value: MaxMessageBytesValue,
-			},
+			Configs: []AlterConfigRequestConfig{
+				{
+					Name:  MaxMessageBytes,
+					Value: MaxMessageBytesValue,
+				},
 			},
 		}},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -48,7 +48,6 @@ func TestClientDescribeConfigs(t *testing.T) {
 			ConfigNames:  []string{MaxMessageBytes},
 		}},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -195,5 +195,4 @@ func BenchmarkMetadataResponse(b *testing.B) {
 			},
 		},
 	})
-
 }

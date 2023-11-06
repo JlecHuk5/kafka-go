@@ -22,7 +22,6 @@ func TestClientListOffsets(t *testing.T) {
 			Record{Time: now, Value: NewBytes([]byte(`hello-3`))},
 		),
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -32,7 +31,6 @@ func TestClientListOffsets(t *testing.T) {
 			topic: {FirstOffsetOf(0), LastOffsetOf(0)},
 		},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}

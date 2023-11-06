@@ -43,7 +43,6 @@ func (c *Client) Metadata(ctx context.Context, req *MetadataRequest) (*MetadataR
 	m, err := c.roundTrip(ctx, req.Addr, &metadataAPI.Request{
 		TopicNames: req.Topics,
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).Metadata: %w", err)
 	}

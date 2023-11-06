@@ -57,8 +57,7 @@ func (c *Client) ListGroups(
 }
 
 // TODO: Remove everything below and use protocol-based version above everywhere.
-type listGroupsRequestV1 struct {
-}
+type listGroupsRequestV1 struct{}
 
 func (t listGroupsRequestV1) size() int32 {
 	return 0

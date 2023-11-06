@@ -29,6 +29,4 @@ type ResponseTopic struct {
 	ErrorCode int16  `kafka:"min=v0,max=v3"`
 }
 
-var (
-	_ protocol.BrokerMessage = (*Request)(nil)
-)
+var _ protocol.BrokerMessage = (*Request)(nil)

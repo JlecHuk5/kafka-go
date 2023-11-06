@@ -151,7 +151,6 @@ func (aot *ACLOperationType) UnmarshalText(text []byte) error {
 	}
 	*aot = parsed
 	return nil
-
 }
 
 type ACLEntry struct {

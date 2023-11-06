@@ -146,7 +146,6 @@ func (c *Client) Fetch(ctx context.Context, req *FetchRequest) (*FetchResponse, 
 			}},
 		}},
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).Fetch: %w", err)
 	}

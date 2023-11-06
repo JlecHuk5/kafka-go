@@ -12,7 +12,6 @@ func TestClientMetadata(t *testing.T) {
 	metadata, err := client.Metadata(context.Background(), &MetadataRequest{
 		Topics: []string{topic},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}

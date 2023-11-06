@@ -17,7 +17,6 @@ func produceRecords(t *testing.T, n int, addr net.Addr, topic string, compressio
 	conn, err := (&Dialer{
 		Resolver: &net.Resolver{},
 	}).DialLeader(context.Background(), addr.Network(), addr.String(), topic, 0)
-
 	if err != nil {
 		t.Fatal("failed to open a new kafka connection:", err)
 	}
@@ -60,7 +59,6 @@ func TestClientFetch(t *testing.T) {
 		MaxBytes:  64 * 1024,
 		MaxWait:   100 * time.Millisecond,
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -87,7 +85,6 @@ func TestClientFetchCompressed(t *testing.T) {
 		MaxBytes:  64 * 1024,
 		MaxWait:   100 * time.Millisecond,
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -172,7 +169,6 @@ func readRecords(records RecordReader) ([]memoryRecord, error) {
 
 	for {
 		rec, err := records.ReadRecord()
-
 		if err != nil {
 			if errors.Is(err, io.EOF) {
 				return list, nil

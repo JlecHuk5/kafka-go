@@ -66,7 +66,6 @@ type OffsetFetchPartition struct {
 // OffsetFetch sends an offset fetch request to a kafka broker and returns the
 // response.
 func (c *Client) OffsetFetch(ctx context.Context, req *OffsetFetchRequest) (*OffsetFetchResponse, error) {
-
 	// Kafka version 0.10.2.x and above allow null Topics map for OffsetFetch API
 	// which will return the result for all topics with the desired consumer group:
 	// https://kafka.apache.org/0102/protocol.html#The_Messages_OffsetFetch
@@ -94,7 +93,6 @@ func (c *Client) OffsetFetch(ctx context.Context, req *OffsetFetchRequest) (*Off
 		GroupID: req.GroupID,
 		Topics:  topics,
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).OffsetFetch: %w", err)
 	}

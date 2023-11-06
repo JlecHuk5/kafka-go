@@ -125,7 +125,6 @@ func TestDefaultExpiry(t *testing.T) {
 			} else {
 				assert.Equal(t, expiry, actual)
 			}
-
 		})
 	}
 }

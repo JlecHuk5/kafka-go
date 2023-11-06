@@ -42,7 +42,6 @@ func TestClientDescribeGroups(t *testing.T) {
 			Value: []byte("value"),
 		},
 	)
-
 	if err != nil {
 		t.Fatal(err)
 	}

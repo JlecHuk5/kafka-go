@@ -553,7 +553,6 @@ func TestConsumerGroupErrors(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.scenario, func(t *testing.T) {
-
 			tt.prepare(&mc)
 
 			group, err := NewConsumerGroup(ConsumerGroupConfig{

@@ -139,7 +139,6 @@ func (c *Client) ListOffsets(ctx context.Context, req *ListOffsetsRequest) (*Lis
 		IsolationLevel: int8(req.IsolationLevel),
 		Topics:         topics,
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).ListOffsets: %w", err)
 	}

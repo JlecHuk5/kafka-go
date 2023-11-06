@@ -24,9 +24,7 @@ type RequestPartition struct {
 	PartitionIndex int32 `kafka:"min=v0,max=v0"`
 }
 
-var (
-	_ protocol.GroupMessage = (*Request)(nil)
-)
+var _ protocol.GroupMessage = (*Request)(nil)
 
 type Response struct {
 	ErrorCode      int16           `kafka:"min=v0,max=v0"`

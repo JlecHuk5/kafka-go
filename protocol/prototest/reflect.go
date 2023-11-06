@@ -9,9 +9,7 @@ import (
 	"github.com/segmentio/kafka-go/protocol"
 )
 
-var (
-	recordReader = reflect.TypeOf((*protocol.RecordReader)(nil)).Elem()
-)
+var recordReader = reflect.TypeOf((*protocol.RecordReader)(nil)).Elem()
 
 func closeMessage(m protocol.Message) {
 	forEachField(reflect.ValueOf(m), func(v reflect.Value) {
