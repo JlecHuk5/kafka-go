@@ -6,3 +6,9 @@ name = "go"
   [analyzers.meta]
   import_root = "github.com/JlecHuk5/kafka-go"
   dependencies_vendored = true
+
+[[transformers]]
+name = "gofmt"
+
+[[transformers]]
+name = "gofumpt"
