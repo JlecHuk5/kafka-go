@@ -274,8 +274,8 @@ func (wb *writeBuffer) writeFetchRequestV10(correlationID int32, clientID, topic
 	wb.writeInt32(int32(minBytes))
 	wb.writeInt32(int32(maxBytes))
 	wb.writeInt8(isolationLevel) // isolation level 0 - read uncommitted
-	wb.writeInt32(0)             //FIXME
-	wb.writeInt32(-1)            //FIXME
+	wb.writeInt32(0)             // FIXME
+	wb.writeInt32(-1)            // FIXME
 
 	// topic array
 	wb.writeArrayLen(1)
@@ -284,7 +284,7 @@ func (wb *writeBuffer) writeFetchRequestV10(correlationID int32, clientID, topic
 	// partition array
 	wb.writeArrayLen(1)
 	wb.writeInt32(partition)
-	wb.writeInt32(-1) //FIXME
+	wb.writeInt32(-1) // FIXME
 	wb.writeInt64(offset)
 	wb.writeInt64(int64(0)) // log start offset only used when is sent by follower
 	wb.writeInt32(int32(maxBytes))
@@ -380,7 +380,6 @@ func (wb *writeBuffer) writeProduceRequestV2(codec CompressionCodec, correlation
 }
 
 func (wb *writeBuffer) writeProduceRequestV3(correlationID int32, clientID, topic string, partition int32, timeout time.Duration, requiredAcks int16, transactionalID *string, recordBatch *recordBatch) (err error) {
-
 	h := requestHeader{
 		ApiKey:        int16(produce),
 		ApiVersion:    int16(v3),
@@ -418,7 +417,6 @@ func (wb *writeBuffer) writeProduceRequestV3(correlationID int32, clientID, topi
 }
 
 func (wb *writeBuffer) writeProduceRequestV7(correlationID int32, clientID, topic string, partition int32, timeout time.Duration, requiredAcks int16, transactionalID *string, recordBatch *recordBatch) (err error) {
-
 	h := requestHeader{
 		ApiKey:        int16(produce),
 		ApiVersion:    int16(v7),

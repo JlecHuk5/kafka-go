@@ -18,7 +18,6 @@ func TestClientDeleteTopics(t *testing.T) {
 	res, err := client.DeleteTopics(context.Background(), &DeleteTopicsRequest{
 		Topics: []string{topic},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}

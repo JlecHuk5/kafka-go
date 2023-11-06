@@ -37,7 +37,6 @@ func TestClientAlterPartitionReassignments(t *testing.T) {
 			},
 		},
 	)
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -98,7 +97,6 @@ func TestClientAlterPartitionReassignmentsMultiTopics(t *testing.T) {
 			},
 		},
 	)
-
 	if err != nil {
 		t.Fatal(err)
 	}

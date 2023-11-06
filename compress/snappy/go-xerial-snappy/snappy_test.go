@@ -212,6 +212,7 @@ func BenchmarkSnappyStreamDecodeInto(b *testing.B) {
 		b.SetBytes(int64(bytes))
 	}
 }
+
 func BenchmarkSnappyStreamDecodeMassive(b *testing.B) {
 	massiveString := makeMassive(largeString, 10000)
 	enc := EncodeStream(nil, []byte(massiveString))

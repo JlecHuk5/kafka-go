@@ -85,7 +85,6 @@ func (c *Client) AlterConfigs(ctx context.Context, req *AlterConfigsRequest) (*A
 		Resources:    resources,
 		ValidateOnly: req.ValidateOnly,
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).AlterConfigs: %w", err)
 	}

@@ -132,11 +132,9 @@ const (
 	ReadCommitted   IsolationLevel = 1
 )
 
-var (
-	// DefaultClientID is the default value used as ClientID of kafka
-	// connections.
-	DefaultClientID string
-)
+// DefaultClientID is the default value used as ClientID of kafka
+// connections.
+var DefaultClientID string
 
 func init() {
 	progname := filepath.Base(os.Args[0])
@@ -262,10 +260,12 @@ func (c *Conn) Controller() (broker Broker, err error) {
 			}
 			for _, brokerMeta := range res.Brokers {
 				if brokerMeta.NodeID == res.ControllerID {
-					broker = Broker{ID: int(brokerMeta.NodeID),
+					broker = Broker{
+						ID:   int(brokerMeta.NodeID),
 						Port: int(brokerMeta.Port),
 						Host: brokerMeta.Host,
-						Rack: brokerMeta.Rack}
+						Rack: brokerMeta.Rack,
+					}
 					break
 				}
 			}
@@ -321,7 +321,6 @@ func (c *Conn) findCoordinator(request findCoordinatorRequestV0) (findCoordinato
 	err := c.readOperation(
 		func(deadline time.Time, id int32) error {
 			return c.writeRequest(findCoordinator, v0, id, request)
-
 		},
 		func(deadline time.Time, size int) error {
 			return expectZeroSize(func() (remain int, err error) {
@@ -751,9 +750,8 @@ func (c *Conn) ReadBatch(minBytes, maxBytes int) *Batch {
 // ReadBatchWith in every way is similar to ReadBatch. ReadBatch is configured
 // with the default values in ReadBatchConfig except for minBytes and maxBytes.
 func (c *Conn) ReadBatchWith(cfg ReadBatchConfig) *Batch {
-
 	var adjustedDeadline time.Time
-	var maxFetch = int(c.fetchMaxBytes)
+	maxFetch := int(c.fetchMaxBytes)
 
 	if cfg.MinBytes < 0 || cfg.MinBytes > maxFetch {
 		return &Batch{err: fmt.Errorf("kafka.(*Conn).ReadBatch: minBytes of %d out of [1,%d] bounds", cfg.MinBytes, maxFetch)}
@@ -959,7 +957,6 @@ func (c *Conn) readOffset(t int64) (offset int64, err error) {
 // connection. If there are none, the method fetches all partitions of the kafka
 // cluster.
 func (c *Conn) ReadPartitions(topics ...string) (partitions []Partition, err error) {
-
 	if len(topics) == 0 {
 		if len(c.topic) != 0 {
 			defaultTopics := [...]string{c.topic}
@@ -1159,11 +1156,10 @@ func (c *Conn) writeCompressedMessages(codec CompressionCodec, msgs ...Message) 
 			deadline = adjustDeadlineForRTT(deadline, now, defaultRTT)
 			switch produceVersion {
 			case v7:
-				recordBatch, err :=
-					newRecordBatch(
-						codec,
-						msgs...,
-					)
+				recordBatch, err := newRecordBatch(
+					codec,
+					msgs...,
+				)
 				if err != nil {
 					return err
 				}
@@ -1178,11 +1174,10 @@ func (c *Conn) writeCompressedMessages(codec CompressionCodec, msgs ...Message) 
 					recordBatch,
 				)
 			case v3:
-				recordBatch, err :=
-					newRecordBatch(
-						codec,
-						msgs...,
-					)
+				recordBatch, err := newRecordBatch(
+					codec,
+					msgs...,
+				)
 				if err != nil {
 					return err
 				}
@@ -1247,7 +1242,6 @@ func (c *Conn) writeCompressedMessages(codec CompressionCodec, msgs ...Message) 
 						}
 						return size, err
 					}
-
 				})
 				if err != nil {
 					return size, err
@@ -1606,7 +1600,7 @@ func (c *Conn) saslAuthenticate(data []byte) ([]byte, error) {
 		return nil, err
 	}
 	if version == v1 {
-		var request = saslAuthenticateRequestV0{Data: data}
+		request := saslAuthenticateRequestV0{Data: data}
 		var response saslAuthenticateResponseV0
 
 		err := c.writeOperation(

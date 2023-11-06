@@ -112,13 +112,11 @@ type array struct {
 	len  int
 }
 
-var (
-	emptyArray struct{}
-)
+var emptyArray struct{}
 
 func makeArray(t reflect.Type, n int) array {
 	var elem unsafe.Pointer
-	var size = uintptr(t.Size())
+	size := uintptr(t.Size())
 	if n == 0 {
 		elem = unsafe.Pointer(&emptyArray)
 	} else {

@@ -117,7 +117,6 @@ func TestReadMapStringInt32(t *testing.T) {
 }
 
 func TestReadNewBytes(t *testing.T) {
-
 	t.Run("reads new bytes", func(t *testing.T) {
 		r := bufio.NewReader(bytes.NewReader([]byte("foobar")))
 
@@ -196,7 +195,6 @@ func BenchmarkReadVarInt(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		v := int64(0)
 		r, err := readVarInt(rb, n, &v)
-
 		if err != nil {
 			b.Fatalf("unexpected error reading a varint from the input: %v", err)
 		}

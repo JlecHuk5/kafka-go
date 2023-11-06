@@ -111,5 +111,4 @@ func TestCreateACLsResponse(t *testing.T) {
 			},
 		},
 	})
-
 }

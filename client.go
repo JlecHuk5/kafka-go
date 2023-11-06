@@ -66,7 +66,6 @@ func (c *Client) ConsumerOffsets(ctx context.Context, tg TopicAndGroup) (map[int
 	metadata, err := c.Metadata(ctx, &MetadataRequest{
 		Topics: []string{tg.Topic},
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("failed to get topic metadata :%w", err)
 	}
@@ -84,7 +83,6 @@ func (c *Client) ConsumerOffsets(ctx context.Context, tg TopicAndGroup) (map[int
 			tg.Topic: partitions,
 		},
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("failed to get offsets: %w", err)
 	}

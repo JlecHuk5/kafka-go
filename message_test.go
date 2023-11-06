@@ -532,7 +532,6 @@ func TestMessageSetReader(t *testing.T) {
 			require.EqualError(t, err, errShortRead.Error())
 		})
 	}
-
 }
 
 func TestMessageSetReaderEmpty(t *testing.T) {
@@ -570,7 +569,7 @@ func TestMessageFixtures(t *testing.T) {
 		key   string
 		value string
 	}
-	var fixtureMessages = map[string]fixtureMessage{
+	fixtureMessages := map[string]fixtureMessage{
 		"a": {key: "alpha", value: `{"count":0,"filler":"aaaaaaaaaa"}`},
 		"b": {key: "beta", value: `{"count":0,"filler":"bbbbbbbbbb"}`},
 		"c": {key: "gamma", value: `{"count":0,"filler":"cccccccccc"}`},
@@ -692,7 +691,6 @@ func TestMessageSize(t *testing.T) {
 			}
 		})
 	}
-
 }
 
 // https://stackoverflow.com/questions/43495745/how-to-generate-random-date-in-go-lang/43497333#43497333

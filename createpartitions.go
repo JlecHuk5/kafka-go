@@ -55,7 +55,6 @@ func (c *Client) CreatePartitions(ctx context.Context, req *CreatePartitionsRequ
 		TimeoutMs:    c.timeoutMs(ctx, defaultCreatePartitionsTimeout),
 		ValidateOnly: req.ValidateOnly,
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).CreatePartitions: %w", err)
 	}

@@ -108,13 +108,11 @@ func (lb *LeastBytes) makeCounters(partitions ...int) (counters []leastBytesCoun
 	return
 }
 
-var (
-	fnv1aPool = &sync.Pool{
-		New: func() interface{} {
-			return fnv.New32a()
-		},
-	}
-)
+var fnv1aPool = &sync.Pool{
+	New: func() interface{} {
+		return fnv.New32a()
+	},
+}
 
 // Hash is a Balancer that uses the provided hash function to determine which
 // partition to route messages to.  This ensures that messages with the same key
@@ -122,7 +120,7 @@ var (
 //
 // The logic to calculate the partition is:
 //
-// 		hasher.Sum32() % len(partitions) => partition
+//	hasher.Sum32() % len(partitions) => partition
 //
 // By default, Hash uses the FNV-1a algorithm.  This is the same algorithm used
 // by the Sarama Producer and ensures that messages produced by kafka-go will
@@ -173,7 +171,7 @@ func (h *Hash) Balance(msg Message, partitions ...int) int {
 //
 // The logic to calculate the partition is:
 //
-//      (int32(hasher.Sum32()) & 0x7fffffff) % len(partitions) => partition
+//	(int32(hasher.Sum32()) & 0x7fffffff) % len(partitions) => partition
 //
 // By default, ReferenceHash uses the FNV-1a algorithm. This is the same algorithm as
 // the Sarama NewReferenceHashPartitioner and ensures that messages produced by kafka-go will

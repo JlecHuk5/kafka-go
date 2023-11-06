@@ -96,7 +96,6 @@ func TestOffsetFetchRequestWithNoTopic(t *testing.T) {
 	client := Client{Addr: TCP("localhost:9092")}
 
 	topicOffsets, err := client.OffsetFetch(ctx, &OffsetFetchRequest{GroupID: consumeGroup})
-
 	if err != nil {
 		t.Error(err)
 		t.FailNow()
@@ -106,7 +105,6 @@ func TestOffsetFetchRequestWithNoTopic(t *testing.T) {
 		t.Error(err)
 		t.FailNow()
 	}
-
 }
 
 func TestOffsetFetchRequestWithOneTopic(t *testing.T) {
@@ -154,7 +152,6 @@ func TestOffsetFetchRequestWithOneTopic(t *testing.T) {
 	topicOffsets, err := client.OffsetFetch(ctx, &OffsetFetchRequest{GroupID: consumeGroup, Topics: map[string][]int{
 		topic1: {0},
 	}})
-
 	if err != nil {
 		t.Error(err)
 		t.FailNow()

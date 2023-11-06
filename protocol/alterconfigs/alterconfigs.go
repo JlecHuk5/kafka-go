@@ -43,6 +43,4 @@ type ResponseResponses struct {
 	ResourceName string `kafka:"min=v0,max=v1"`
 }
 
-var (
-	_ protocol.BrokerMessage = (*Request)(nil)
-)
+var _ protocol.BrokerMessage = (*Request)(nil)

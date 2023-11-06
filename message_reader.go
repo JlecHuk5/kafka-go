@@ -120,8 +120,8 @@ func (r *messageSetReader) discard() (err error) {
 }
 
 func (r *messageSetReader) readMessage(min int64, key readBytesFunc, val readBytesFunc) (
-	offset int64, lastOffset int64, timestamp int64, headers []Header, err error) {
-
+	offset int64, lastOffset int64, timestamp int64, headers []Header, err error,
+) {
 	if r.empty {
 		err = RequestTimedOut
 		return
@@ -143,8 +143,8 @@ func (r *messageSetReader) readMessage(min int64, key readBytesFunc, val readByt
 }
 
 func (r *messageSetReader) readMessageV1(min int64, key readBytesFunc, val readBytesFunc) (
-	offset int64, timestamp int64, headers []Header, err error) {
-
+	offset int64, timestamp int64, headers []Header, err error,
+) {
 	for r.readerStack != nil {
 		if r.remain == 0 {
 			r.readerStack = r.parent
@@ -250,7 +250,8 @@ func (r *messageSetReader) readMessageV1(min int64, key readBytesFunc, val readB
 }
 
 func (r *messageSetReader) readMessageV2(_ int64, key readBytesFunc, val readBytesFunc) (
-	offset int64, lastOffset int64, timestamp int64, headers []Header, err error) {
+	offset int64, lastOffset int64, timestamp int64, headers []Header, err error,
+) {
 	if err = r.readHeader(); err != nil {
 		return
 	}

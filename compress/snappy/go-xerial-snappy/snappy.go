@@ -83,7 +83,7 @@ func Decode(src []byte) ([]byte, error) {
 // for use by this function. If `dst` is nil *or* insufficiently large to hold
 // the decoded `src`, new space will be allocated.
 func DecodeInto(dst, src []byte) ([]byte, error) {
-	var max = len(src)
+	max := len(src)
 	if max < len(xerialHeader) {
 		return nil, ErrMalformed
 	}

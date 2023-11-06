@@ -57,7 +57,6 @@ func TestClientProduce(t *testing.T) {
 			Record{Time: now, Value: NewBytes([]byte(`hello-3`))},
 		),
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -88,7 +87,6 @@ func TestClientProduceCompressed(t *testing.T) {
 			Record{Time: now, Value: NewBytes([]byte(`hello-3`))},
 		),
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -112,7 +110,6 @@ func TestClientProduceNilRecords(t *testing.T) {
 		RequiredAcks: -1,
 		Records:      nil,
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -128,7 +125,6 @@ func TestClientProduceEmptyRecords(t *testing.T) {
 		RequiredAcks: -1,
 		Records:      NewRecordReader(),
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}

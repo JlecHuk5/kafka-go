@@ -28,7 +28,6 @@ func TestClientElectLeaders(t *testing.T) {
 			Partitions: []int{0, 1},
 		},
 	)
-
 	if err != nil {
 		t.Fatal(err)
 	}

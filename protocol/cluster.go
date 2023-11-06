@@ -138,6 +138,4 @@ func formatBrokerIDs(brokerIDs []int32, leader int32) string {
 	return strings.Join(brokerNames, ",")
 }
 
-var (
-	_ fmt.Formatter = Cluster{}
-)
+var _ fmt.Formatter = Cluster{}

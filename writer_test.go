@@ -833,7 +833,6 @@ func testWriteMessageWithWriterData(t *testing.T) {
 			t.Errorf("unexpected error %v", err)
 		}
 	}
-
 }
 
 func testWriterAutoCreateTopic(t *testing.T) {

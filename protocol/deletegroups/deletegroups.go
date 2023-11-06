@@ -24,9 +24,7 @@ func (r *Request) Group() string {
 
 func (r *Request) ApiKey() protocol.ApiKey { return protocol.DeleteGroups }
 
-var (
-	_ protocol.GroupMessage = (*Request)(nil)
-)
+var _ protocol.GroupMessage = (*Request)(nil)
 
 type Response struct {
 	// We need at least one tagged field to indicate that this is a "flexible" message

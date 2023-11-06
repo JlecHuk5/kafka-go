@@ -7,9 +7,7 @@ import (
 	"github.com/klauspost/compress/gzip"
 )
 
-var (
-	readerPool sync.Pool
-)
+var readerPool sync.Pool
 
 // Codec is the implementation of a compress.Codec which supports creating
 // readers and writers for kafka messages compressed with gzip.

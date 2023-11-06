@@ -51,7 +51,6 @@ func TestClientDeleteGroups(t *testing.T) {
 	res, err := client.DeleteGroups(ctx, &DeleteGroupsRequest{
 		GroupIDs: []string{groupID},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}

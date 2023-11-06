@@ -105,9 +105,7 @@ type ResponseTransaction struct {
 	FirstOffset int64 `kafka:"min=v4,max=v11"`
 }
 
-var (
-	_ protocol.BrokerMessage = (*Request)(nil)
-)
+var _ protocol.BrokerMessage = (*Request)(nil)
 
 type Error struct {
 	Err error

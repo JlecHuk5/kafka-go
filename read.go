@@ -454,7 +454,6 @@ func readFetchResponseHeaderV5(r *bufio.Reader, size int) (throttle int32, water
 
 	watermark = p.HighwaterMarkOffset
 	return
-
 }
 
 func readFetchResponseHeaderV10(r *bufio.Reader, size int) (throttle int32, watermark int64, remain int, err error) {
@@ -558,5 +557,4 @@ func readFetchResponseHeaderV10(r *bufio.Reader, size int) (throttle int32, wate
 
 	watermark = p.HighwaterMarkOffset
 	return
-
 }

@@ -32,9 +32,7 @@ type RequestPartition struct {
 	CommittedMetadata    string `kafka:"min=v0,max=v7,nullable"`
 }
 
-var (
-	_ protocol.GroupMessage = (*Request)(nil)
-)
+var _ protocol.GroupMessage = (*Request)(nil)
 
 type Response struct {
 	ThrottleTimeMs int32           `kafka:"min=v3,max=v7"`

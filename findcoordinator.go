@@ -63,12 +63,10 @@ type FindCoordinatorResponse struct {
 // FindCoordinator sends a findCoordinator request to a kafka broker and returns the
 // response.
 func (c *Client) FindCoordinator(ctx context.Context, req *FindCoordinatorRequest) (*FindCoordinatorResponse, error) {
-
 	m, err := c.roundTrip(ctx, req.Addr, &findcoordinator.Request{
 		Key:     req.Key,
 		KeyType: int8(req.KeyType),
 	})
-
 	if err != nil {
 		return nil, fmt.Errorf("kafka.(*Client).FindCoordinator: %w", err)
 	}

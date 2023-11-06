@@ -14,8 +14,10 @@ import (
 // io.WriterTo or io.ReaderFrom.
 // We use this to ensure writes are chunked by io.Copy's internal buffer
 // in the tests.
-type simpleReader struct{ io.Reader }
-type simpleWriter struct{ io.Writer }
+type (
+	simpleReader struct{ io.Reader }
+	simpleWriter struct{ io.Writer }
+)
 
 func TestXerialReaderSnappy(t *testing.T) {
 	rawData := new(bytes.Buffer)

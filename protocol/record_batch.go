@@ -50,7 +50,6 @@ func MultiRecordReader(batches ...RecordReader) RecordReader {
 func forEachRecord(r RecordReader, f func(int, *Record) error) error {
 	for i := 0; ; i++ {
 		rec, err := r.ReadRecord()
-
 		if err != nil {
 			if errors.Is(err, io.EOF) {
 				err = nil

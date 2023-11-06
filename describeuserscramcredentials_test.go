@@ -31,7 +31,6 @@ func TestDescribeUserScramCredentials(t *testing.T) {
 			},
 		},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -55,7 +54,6 @@ func TestDescribeUserScramCredentials(t *testing.T) {
 			},
 		},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -87,7 +85,6 @@ func TestDescribeUserScramCredentials(t *testing.T) {
 			},
 		},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -111,7 +108,6 @@ func TestDescribeUserScramCredentials(t *testing.T) {
 			},
 		},
 	})
-
 	if err != nil {
 		t.Fatal(err)
 	}
